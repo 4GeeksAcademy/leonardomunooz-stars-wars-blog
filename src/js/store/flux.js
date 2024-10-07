@@ -11,8 +11,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "SECOND",
 					background: "white",
 					initial: "white"
-				}
-			]
+				},
+
+			],
+			urlBase: "https://www.swapi.tech/api",
+			people: [],
+			peopleInitial: {
+				section: "character",
+				name: "Luke skywalker",
+				hairColor: "blond",
+				eyeColor: 'blue'
+			}
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,6 +47,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getAllPeople: async () => {
+
+				const urlBase = getStore()
+				try {
+					const response = await fetch(`${urlBase}/people`)
+					const data = await response.json(response)
+					console.log(data.result);
+
+					if (response.ok) {
+						console.log('users exists');
+						setStore(
+							{ people: data.result.properties }
+						)
+					} else {
+						console.log("users doesnt exits");
+					}
+				} catch (error) {
+					console.log(error);
+
+				}
 			}
 		}
 	};
