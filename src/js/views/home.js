@@ -9,38 +9,32 @@ export const Home = () => {
 	return (
 		<div className="container">
 			<div className="row" >
-				<div className="col-12 ">
+				<div className="col-12">
 					<h2 className=" py-4 fs-3 text text-danger fw-bolder">
 						Characters
+						h3
 					</h2>
 				</div>
-				<div className="custom-carrousel col-12 col-md-8 border border-danger">
-					<div className="carrusel-custom ">
+			</div>
+
+			<div className="row">
+				<div className="my-custom-carrousel col-12 ">
+					{
+
+						store.people.map((item) => {
+							return (
+								<Card key={item._id} data={item} />
+							)
+						})
 
 
+					}
 
-						{
-
-							<Card
-								people={store.peopleInitial}
-							/>
-
-							// store.people.map((people) => {
-							// 	return (
-							// 		<Card
-							// 			name={people.name}
-							// 			gender={people.gender}
-							// 			hairColor={people.hair_color}
-							// 			eyeColor={people.hair_color}
-							// 		/>
-							// 	)
-
-							// })
-						}
-					</div>
 				</div>
 			</div>
-		</div >
+
+		</div>
+
 	)
 
 }

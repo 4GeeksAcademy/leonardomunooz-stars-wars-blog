@@ -1,13 +1,15 @@
-import React from  "react"
+import React, { useContext } from "react"
+import { Context } from "../store/appContext";
 
 
 
 const CharacterDetail = () => {
+    const store = useContext(Context)
     return (
         <div className="container">
             <div className="row">
                 <div className="col-12 col-md-6">
-                    <img src="https://placehold.co/800x600"/>
+                    <img src="https://placehold.co/800x600" />
                 </div>
 
                 <div className="col-12 col-md-6">
@@ -17,14 +19,14 @@ const CharacterDetail = () => {
             </div>
 
             <div className="row">
-            <div className="container d-flex" >
-            <div > <span>Name</span> <p>Luke Skywalker</p> </div>
-                <div> <span>Name</span> <p>Luke Skywalker</p> </div>
-                <div> <span>Name</span> <p>Luke Skywalker</p> </div>
-                <div> <span>Name</span> <p>Luke Skywalker</p> </div>
-                <div> <span>Name</span> <p>Luke Skywalker</p> </div>
-                <div> <span>Name</span> <p>Luke Skywalker</p> </div>
-            </div>
+                <div className="container d-flex justify-content-between p-5" >
+                    <div > <span className='fw-bold' >Name</span> <p>Luke Skywalker</p> </div>
+                    <div> <span>Birth Year</span> <p>Luke Skywalker</p> </div>
+                    <div> <span>Gender</span> <p>Luke Skywalker</p> </div>
+                    <div> <span>Height</span> <p>Luke Skywalker</p> </div>
+                    <div> <span>Skin</span> <p>Luke Skywalker</p> </div>
+                    <div> <span>Eye</span> <p>Luke Skywalker</p> </div>
+                </div>
 
             </div>
             <div className="row"></div>

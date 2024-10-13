@@ -15,14 +15,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			],
 			urlBase: "https://www.swapi.tech/api",
+			endpoints: ["people" ],
 			people: [],
-			peopleInitial: {
-				section: "character",
-				name: "Luke skywalker",
-				hairColor: "blond",
-				eyeColor: 'blue'
-			}
-
+			planets: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -49,25 +44,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			getAllPeople: async () => {
+				const store = getStore()
 
-				const urlBase = getStore()
 				try {
-					const response = await fetch(`${urlBase}/people`)
-					const data = await response.json(response)
-					console.log(data.result);
+					for (let endpoints of store.endpoints) {
+						const response = await fetch(`${store.urlBase}/${endpoints}`)
+						const data = await response.json()
+						// console.log(data.results)
 
-					if (response.ok) {
-						console.log('users exists');
-						setStore(
-							{ people: data.result.properties }
-						)
-					} else {
-						console.log("users doesnt exits");
+						for (let item of data.results) {
+							const response = await fetch(`${item.url}`)
+							const data = await response.json()
+							console.log(data.result);
+
+							setStore({
+								[endpoints]: [
+									...store[endpoints],
+									data.result
+								]
+							})
+						}
 					}
 				} catch (error) {
-					console.log(error);
 
 				}
+
+				// try {
+				// 	// console.log(data);
+				// 	if (response.ok) {
+				// 		console.log('users exists');
+				// 	} else {
+				// 		console.log("users doesnt exits");
+				// 	}
+				// } catch (error) {
+				// 	console.log(error);
+				// }
 			}
 		}
 	};

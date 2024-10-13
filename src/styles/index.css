@@ -9,17 +9,19 @@ li {
   list-style: none;
 }
 img {
+  min-width: 100%;
   width: 100%;
   object-fit: cover;
 }
-.properties-container p {
-  margin: none;
-}
-.carrusel-custom {
+ 
+.my-custom-carrousel{
   display: flex;
   overflow-y: scroll;
 }
-
-.custom-carrousel {
-  overflow-y: scroll;
+.my-card {
+  width:18rem;
+  margin-right: 15px;
+}
+.properties-container p {
+  margin: none;
 }
