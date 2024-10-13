@@ -4,12 +4,12 @@ import { Link } from "react-router-dom"
 
 const Card = ({ data }) => {
     return (
-        <div className="card me-2" style={{ width: "18rem" }}>
+        <div className="my-card card me-2">
             <img src="https://placehold.co/400x200" className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{data.properties.name}</h5>
                 <div className="properties-container">
-                    <p className="card-text mb-0"><strong>Gender</strong> :{data.properties.gender}</p>
+                    <p className="card-text mb-0"><strong>Gender</strong> {data.properties.gender}</p>
                     <p className="card-text mb-0"><strong>Hair-color</strong> {data.properties.hair_color}</p>
                     <p className="card-text mb-3"><strong>Eye-color</strong> {data.properties.eye_color}</p>
                 </div>

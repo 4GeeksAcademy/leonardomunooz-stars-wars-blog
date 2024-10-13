@@ -13,14 +13,17 @@ img {
   width: 100%;
   object-fit: cover;
 }
- 
-.my-custom-carrousel{
-  display: flex;
+.my-container-carrousel {
+  display : flex;
   overflow-y: scroll;
+  /* border:solid black 1px; */
+}
+.my-custom-carrousel{
+    display: flex;  
 }
 .my-card {
-  width:18rem;
-  margin-right: 15px;
+  width:300px;
+  /* margin-right: 15px; */
 }
 .properties-container p {
   margin: none;

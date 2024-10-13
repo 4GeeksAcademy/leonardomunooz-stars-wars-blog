@@ -8,33 +8,22 @@ export const Home = () => {
 	const { store } = useContext(Context)
 	return (
 		<div className="container">
-			<div className="row" >
-				<div className="col-12">
-					<h2 className=" py-4 fs-3 text text-danger fw-bolder">
-						Characters
-						h3
-					</h2>
-				</div>
+			<div className="my-section">
+				<h2 className=" py-4 fs-3 text text-danger fw-bolder">
+					People
+				</h2>
 			</div>
-
-			<div className="row">
-				<div className="my-custom-carrousel col-12 ">
+			<div className="my-section my-container-carrousel">
+				<div className="my-custom-carrousel">
 					{
-
 						store.people.map((item) => {
 							return (
 								<Card key={item._id} data={item} />
 							)
 						})
-
-
 					}
-
 				</div>
 			</div>
-
 		</div>
-
 	)
-
 }

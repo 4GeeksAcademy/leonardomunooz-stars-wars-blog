@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			],
 			urlBase: "https://www.swapi.tech/api",
-			endpoints: ["people" ],
+			endpoints: ["people"],
 			people: [],
 			planets: []
 		},
@@ -63,22 +63,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 									data.result
 								]
 							})
+							// localStorage.setItem('people', JSON.stringify(data))
 						}
 					}
 				} catch (error) {
 
 				}
 
-				// try {
-				// 	// console.log(data);
-				// 	if (response.ok) {
-				// 		console.log('users exists');
-				// 	} else {
-				// 		console.log("users doesnt exits");
-				// 	}
-				// } catch (error) {
-				// 	console.log(error);
-				// }
 			}
 		}
 	};
