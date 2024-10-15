@@ -24,6 +24,22 @@ export const Home = () => {
 					}
 				</div>
 			</div>
+			<div className="my-section">
+				<h2 className=" py-4 fs-3 text text-danger fw-bolder">
+					Planets
+				</h2>
+			</div>
+			<div className="my-section my-container-carrousel">
+				<div className="my-custom-carrousel">
+					{
+						store.planets.map((item) => {
+							return (
+								<Card key={item._id} data={item} nature='planets' />
+							)
+						})
+					}
+				</div>
+			</div>
 		</div>
 	)
 }

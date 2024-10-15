@@ -55,7 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						for (let item of data.results) {
 							const response = await fetch(`${item.url}`)
 							const data = await response.json()
-							console.log(data.result);
+							// console.log(data.result);
 
 							setStore({
 								[endpoints]: [
@@ -63,11 +63,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 									data.result
 								]
 							})
-							// localStorage.setItem('people', JSON.stringify(data))
+
 						}
 					}
 				} catch (error) {
-
+					console.log(error);
 				}
 
 			}
