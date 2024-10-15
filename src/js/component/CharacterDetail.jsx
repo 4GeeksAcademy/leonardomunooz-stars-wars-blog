@@ -11,24 +11,32 @@ const CharacterDetail = () => {
     const [detail, setDetail] = useState(null)
 
     const findItem = () => {
+
+        // console.log(store.endpoints);
+
+        // console.log(store.endpoints[0]);
+
+
         for (let enP of store.endpoints) {
+            // console.log(store[enP]);
+
             let result = store[enP].find((item) => item._id == id)
             setDetail(result)
         }
 
+
     }
-    console.log(detail);
 
     useEffect(() => {
         findItem()
-    }, [store.people, store.planets])
+    }, [store.people])
 
 
     return (
         <div className="container">
 
             {
-                nature == "people" ?
+                nature === "people" ?
                     <div>
                         <div className="row">
                             <div className="col-12 col-md-6">
@@ -52,7 +60,7 @@ const CharacterDetail = () => {
                             </div>
                         </div>
                     </div> :
-                    nature == "planets" ?
+                    nature === "planets" ?
                         <div>
                             <div className="row">
                                 <div className="col-12 col-md-6">

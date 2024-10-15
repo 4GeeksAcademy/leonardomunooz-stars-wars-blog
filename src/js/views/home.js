@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 
-
 import Card from "../component/card.jsx";
+import CardPlanet from "../component/CardPlanet.jsx"
+
 export const Home = () => {
 	const { store } = useContext(Context)
 	return (
@@ -34,7 +35,7 @@ export const Home = () => {
 					{
 						store.planets.map((item) => {
 							return (
-								<Card key={item._id} data={item} nature='planets' />
+								<CardPlanet key={item._id} data={item}  />
 							)
 						})
 					}
