@@ -9,7 +9,7 @@ const Card = ({ data }) => {
 
     return (
         <div className="my-card card me-2">
-            <img src="https://placehold.co/400x200" className="card-img-top" alt="..." />
+            <img src={`https://starwars-visualguide.com/assets/img/characters/${data.uid}.jpg`} className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{data?.properties?.name}</h5>
                 <div className="properties-container">

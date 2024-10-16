@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 
 
 const CharacterDetail = () => {
+    const [detail, setDetail] = useState(null)
     const { store } = useContext(Context)
     const { nature, id } = useParams()
     // console.log(useParams());
 
-    const [detail, setDetail] = useState(null)
 
     const findItem = () => {
 
@@ -17,12 +17,13 @@ const CharacterDetail = () => {
         // console.log(store.endpoints[0]);
 
 
-        for (let enP of store.endpoints) {
-            // console.log(store[enP]);
 
-            let result = store[enP].find((item) => item._id == id)
-            setDetail(result)
-        }
+        // console.log(store[enP]);
+        // console.log(enP)
+        let result = store[nature].find((item) => item._id == id)
+        console.log(result)
+        setDetail(result)
+
 
 
     }
@@ -40,7 +41,7 @@ const CharacterDetail = () => {
                     <div>
                         <div className="row">
                             <div className="col-12 col-md-6">
-                                <img src="https://placehold.co/800x600" />
+                                <img src={`https://starwars-visualguide.com/assets/img/characters/${detail?.uid}.jpg`} />
                             </div>
 
                             <div className="col-12 col-md-6">
