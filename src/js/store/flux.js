@@ -1,19 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				},
-
-			],
 			urlBase: "https://www.swapi.tech/api",
 			endpoints: ["people", "planets"],
 			people: JSON.parse(localStorage.getItem('people')) || [],
@@ -75,27 +62,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 			},
-			addFavorites: (fav) => {
-				console.log(fav);
-
+			handleFavorite: (fav) => {
 				let store = getStore()
-
-
 				let exists = store.favorites.some((item) => item._id == fav._id)
 
 				if (exists) {
-					let newFavList = store.favorites.filter((item) => item._id != fav._id)
-					setStore({
-						favorites: newFavList
-					})
+					getActions().deleteFav(fav)
 				} else {
 
 					setStore({
 						favorites: [...store.favorites, fav]
 					})
-
-					console.log('agregado');
 				}
+			},
+			deleteFav: (fav) => {
+				let store = getStore()
+				let newFavList = store.favorites.filter((item) => item._id != fav._id)
+				setStore({
+					favorites: newFavList
+				})
 			}
 		}
 	};

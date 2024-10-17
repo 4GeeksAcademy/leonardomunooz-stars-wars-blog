@@ -12,20 +12,9 @@ const CharacterDetail = () => {
 
     const findItem = () => {
 
-        // console.log(store.endpoints);
-
-        // console.log(store.endpoints[0]);
-
-
-
-        // console.log(store[enP]);
-        // console.log(enP)
         let result = store[nature].find((item) => item._id == id)
-        console.log(result)
+        // console.log(result)
         setDetail(result)
-
-
-
     }
 
     useEffect(() => {
@@ -41,7 +30,7 @@ const CharacterDetail = () => {
                     <div>
                         <div className="row">
                             <div className="col-12 col-md-6">
-                                <img src={`https://starwars-visualguide.com/assets/img/characters/${detail?.uid}.jpg`} />
+                                <img className="my-detailPhoto" src={`https://starwars-visualguide.com/assets/img/characters/${detail?.uid}.jpg`} />
                             </div>
 
                             <div className="col-12 col-md-6">
@@ -65,7 +54,7 @@ const CharacterDetail = () => {
                         <div>
                             <div className="row">
                                 <div className="col-12 col-md-6">
-                                    <img src="https://placehold.co/800x600" />
+                                    <img className="my-detailPhoto" src={`https://starwars-visualguide.com/assets/img/planets/${detail?.uid}.jpg`} />
                                 </div>
 
                                 <div className="col-12 col-md-6">

@@ -29,3 +29,15 @@ img {
 .properties-container p {
   margin: none;
 }
+
+
+.my-detailPhoto {
+  min-width: 100%;
+  width: 100%;
+  object-fit: contain;
+  max-height: 38rem;
+}
+
+.my-trash:hover {
+  color : #0d6efd;
+}
