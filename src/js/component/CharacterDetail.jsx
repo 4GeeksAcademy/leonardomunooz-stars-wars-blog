@@ -19,7 +19,7 @@ const CharacterDetail = () => {
 
     useEffect(() => {
         findItem()
-    }, [store.people])
+    }, [])
 
 
     return (
