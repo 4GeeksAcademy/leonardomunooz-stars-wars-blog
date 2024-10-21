@@ -39,21 +39,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						for (let endpoint of store.endpoints) {
 							const response = await fetch(`${store.urlBase}/${endpoint}`)
 							const data = await response.json()
-							console.log(data.results)
-
 							for (let item of data.results) {
 								const response = await fetch(`${item.url}`)
 								const data = await response.json()
-								// console.log(data.result);
-
 								setStore({
 									[endpoint]: [
 										...store[endpoint],
 										data.result
 									]
 								})
-								// console.log([...getStore()[endpoint]]);
-
 								localStorage.setItem(endpoint, JSON.stringify([
 									...getStore()[endpoint],
 									data.result
@@ -74,7 +68,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (exists) {
 					getActions().deleteFav(fav)
 				} else {
-
 					setStore({
 						favorites: [...store.favorites, fav]
 					})
